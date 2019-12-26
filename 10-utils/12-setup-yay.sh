@@ -1,6 +1,11 @@
 #/bin/sh
 
-sudo pacman -S --noconfirm binutils make gcc pkg-config fakeroot
+sudo pacman -S --noconfirm \
+	binutils \
+	make \
+	gcc \
+	pkg-config \
+	fakeroot
 
 echo -n "Specify where to clone yay: [./]"
 read CLONE_DIR
