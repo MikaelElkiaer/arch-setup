@@ -11,7 +11,7 @@ sudo systemctl start optimus-manager
 
 optimus-manager --set-startup hybrid
 
-# Set up nvidia power management
+# Set up nvidia power management (http://download.nvidia.com/XFree86/Linux-x86_64/435.17/README/dynamicpowermanagement.html#AutomatedSetup803b0)
 sudo sh -c "cat <<- EOL > /lib/udev/rules.d/80-nvidia-pm.rules
 # Remove NVIDIA USB xHCI Host Controller devices, if present
 ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c0330", ATTR{remove}="1"
