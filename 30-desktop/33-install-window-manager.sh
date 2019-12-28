@@ -6,7 +6,7 @@ sudo pacman -S --noconfirm \
 	i3-gaps \
 	i3lock \
 	rofi \
-	hsetroot \
+	feh \
 	lxappearance \
 	gnome-terminal \
 	powerline \
