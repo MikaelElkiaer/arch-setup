@@ -22,3 +22,12 @@ cd ../..
 git clone https://github.com/GalaticStryder/gnome-terminal-colors-dracula
 cd gnome-terminal-colors-dracula
 ./install.sh
+
+cd ..
+
+sudo pacman -S --noconfirm python xorg-xprop
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python get-pip.py
+pip install --user i3ipc
+pip install --user fontawesome
+git clone https://github.com/justbuchanan/i3scripts.git
