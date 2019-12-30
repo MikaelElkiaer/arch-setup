@@ -8,7 +8,7 @@ sudo pacman -S --noconfirm \
 	rofi \
 	feh \
 	lxappearance \
-	gnome-terminal \
+	urxvt \
 	powerline \
 	powerline-fonts \
 	libnotify \
