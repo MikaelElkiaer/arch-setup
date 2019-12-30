@@ -7,13 +7,17 @@
 ```
 sudo pacman -S openvpn
 yay -S --noconfirm aur/openvpn-update-systemd-resolved
+ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 ```
+
+In `/etc/nsswitch.conf`, move `dns` before `resolve` in the `hosts:` line.
 
 ```
 # add to any client config to ensure DNS re-configuring
 script-security 2
-setenv PATH /usr/bin
+setenv PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 up /etc/openvpn/scripts/update-systemd-resolved
+up-restart
 down /etc/openvpn/scripts/update-systemd-resolved
 down-pre
 dhcp-option DOMAIN-ROUTE .
