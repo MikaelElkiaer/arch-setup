@@ -2,5 +2,5 @@
 
 sudo pacman -S --noconfirm \
 	gucharmap \
-	gnome-screenshot \
+	scrot \
 	gnome-keyring
