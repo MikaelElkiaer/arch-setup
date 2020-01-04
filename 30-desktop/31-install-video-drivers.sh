@@ -1,7 +1,7 @@
 #/bin/sh
 
 # Install packages
-sudo pacman -S nvidia optimus-manager brightnessctl
+sudo pacman -S nvidia optimus-manager brightnessctl nvidia-prime
 
 # Set up optimus-manager
 echo 'Option "Backlight" "intel_backlight"' >> /etc/optimus-manager/xorg-intel.conf
