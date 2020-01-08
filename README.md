@@ -2,6 +2,13 @@
 
 ## System
 
+### Fix network dependent services
+Network dependent services, such as Docker or OpenVPN, will wait for systemd-networkd-wait-online before starting.
+When having both ethernet and wifi links up, systemd-networkd-wait-online will by default wait for both links to be configured (online).
+This can be mitigated by the following:
+
+Add `--any` to `systemd-networkd-wait-online` call in `/usr/lib/systemd/system/systemd-networkd-wait-online.service`.
+
 ### VPN
 
 ```
