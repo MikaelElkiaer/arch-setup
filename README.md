@@ -38,8 +38,9 @@ dhcp-option DOMAIN-ROUTE .
 # install package
 sudo pacman -S docker
 
-# start service (slow startup, breaks login when enabled)
+# start and enable service
 systemctl start docker
+systemctl enable docker
 
 # add user to docker group (won't work until next login)
 sudo usermod -aG docker $USER
@@ -54,5 +55,6 @@ chmod +x dotnet-install.sh
 
 # install one or more versions (for other than latest, use specific version numbers from https://dotnet.microsoft.com/download/dotnet-core)
 ./dotnet-install.sh --install-dir /opt/dotnet -channel LTS -version latest
-PATH=/opt/dotnet:$PATH
 ```
+
+Add `PATH=/opt/dotnet:$PATH` to some startup file - e.g. `.xprofile`.
