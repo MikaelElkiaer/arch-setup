@@ -30,6 +30,13 @@ down-pre
 dhcp-option DOMAIN-ROUTE .
 ```
 
+### Pacman mirrors
+
+Update mirrorlist to newest and fastest in northern Europe:
+```
+curl -s "https://www.archlinux.org/mirrorlist/?country=DK&country=FI&country=DE&country=NL&country=NO&country=SE&protocol=https&ip_version=4&ip_version=6&use_mirror_status=on" | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 10 - > /etc/pacman.d/mirrorlist
+```
+
 ## Development
 
 ### Docker
