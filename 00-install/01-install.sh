@@ -42,7 +42,7 @@ else
 	DISK_NAME_P=${DISK_NAME}
 fi
 
-sgdisk -o ${DISK_NAME}
+sgdisk -o ${DISK_NAME} -g
 sgdisk -n 1:0:+1M -t 1:ef02 -c 1:"BIOS Boot Partition" ${DISK_NAME}
 sgdisk -n 2:0:+550M -t 2:ef00 -c 2:"EFI System Partition" ${DISK_NAME}
 sgdisk -n 3:0:+200M -t 3:8300 -c 3:"Boot Partition" ${DISK_NAME}
@@ -63,7 +63,7 @@ mount ${DISK_NAME_P}2 /mnt/efi
 ###########
 # BOOTSTRAP
 ###########
-pacstrap /mnt base linux linux-firmware grub efibootmgr vim sudo iwd zsh
+pacstrap /mnt base linux-lts linux-firmware grub efibootmgr vim sudo zsh netctl dialog wpa_supplicant dhcpcd
 
 genfstab -U /mnt >> /mnt/etc/fstab
 
@@ -102,9 +102,8 @@ arch-chroot /mnt <<- CHROOTEOF
 	# bootloader
 	mkdir /boot/grub
 	grub-mkconfig -o /boot/grub/grub.cfg
-	grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=ARCH --recheck
 	grub-install --target=i386-pc --recheck ${DISK_NAME}
-	mkinitcpio -p linux
+	mkinitcpio -p linux-lts
 	
 	echo "root:$PASSWORD_ROOT" | /usr/sbin/chpasswd
 CHROOTEOF
