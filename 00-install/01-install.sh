@@ -28,9 +28,9 @@ while [ -z "$PASSWORD_USER" ]; do
 done
 echo -n "Set hostname: "
 read HOSTNAME
-echo -n "Set disk: "
+echo -n "Set disk (e.g. /dev/sda): "
 read DISK_NAME
-echo -n "Set swap size: "
+echo -n "Set swap size (e.g. 2G): "
 read SWAP_SIZE
 
 ############
