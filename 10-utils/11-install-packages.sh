@@ -10,8 +10,8 @@ pacman -S --noconfirm \
 	bat \
 	tldr \
 	neofetch \
-	diff-so-fancy \
 	wget \
 	sed \
 	which \
 	htop
+
